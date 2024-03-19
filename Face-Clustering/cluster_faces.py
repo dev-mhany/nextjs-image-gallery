@@ -11,7 +11,7 @@ import pickle
 import cv2
 import os
 import json
-from constants import ENCODINGS_PATH, CLUSTERING_RESULT_PATH
+from constants import ENCODINGS_PATH, CLUSTERING_RESULT_PATH, FACEDATA_PATH, IMAGES_PATH
 
 
 # add constants file in the code (clustering_result)
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     print("[INFO] clustering...")
 
     # creating DBSCAN object for clustering the encodings with the metric "euclidean"
-    clt = DBSCAN(metric="euclidean", n_jobs=args["jobs"],eps=0.392,min_samples=3)
+    clt = DBSCAN(metric="euclidean", n_jobs=args["jobs"],eps=0.392,min_samples=2)
     clt.fit(encodings)
 
     # determine the total number of unique faces found in the dataset
@@ -132,7 +132,7 @@ if __name__ == "__main__":
         # write on disk
         copy_image(montage, None, labelID, montage=True)
 
-    with open('./utils/faceData.json', 'w') as file:
+    with open(FACEDATA_PATH, 'w') as file:
         json.dump(faceData, file,indent=1)
-    with open('./utils/imagesData.json', 'w') as file:
+    with open(IMAGES_PATH, 'w') as file:
         json.dump(imagesData, file,indent=1)
