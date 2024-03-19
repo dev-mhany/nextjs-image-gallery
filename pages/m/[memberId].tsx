@@ -87,12 +87,12 @@ const Home: NextPage = ({images}:{images:ImageProps[]}) => {
         <footer className="p-6 text-center text-white/80 sm:p-12">
           Thank you to{" "}
           <a
-            href="https://ahmedhany.dev/"
+            href="https://wa.me/+201029384721"
             target="_blank"
             className="font-semibold hover:text-white"
             rel="noreferrer"
           >
-            Ahmed Hany
+            Muhammad Hany
           </a>{" "}
           for this app.
           <br />
